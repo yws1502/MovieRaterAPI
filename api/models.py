@@ -12,6 +12,7 @@ class Rating(models.Model):
   movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+  
   class Meta:
     # 이 친구들은 한 영화에 대해 리뷰를 남기면 같은 user는 다시 리뷰를 하지 못하게 하는 것!
     unique_together = (('user', 'movie'),)
