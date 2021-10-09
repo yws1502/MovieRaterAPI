@@ -3,9 +3,13 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 
-
 from .models import *
 from .serializers import *
+
+
+class UserViewSet(viewsets.ModelViewSet):
+  queryset = User.objects.all()
+  serializer_class = UserSerializer
 
 
 class MovieViewSet(viewsets.ModelViewSet):
