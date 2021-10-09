@@ -21,7 +21,6 @@ class MovieViewSet(viewsets.ModelViewSet):
 
     else:
       movie = Movie.objects.get(id=pk)
-      # user = User.objects.get(id=1)
       user = request.user
       stars = request.data['stars']
       message = 'Rating updated'
